@@ -1,0 +1,11 @@
+# TSMixer and iTransformer Forecasting
+
+- `src/tsmixer_itransformer/config.py`: immutable TOML configuration.
+- `src/tsmixer_itransformer/data.py`: benchmark loading and panel validation.
+- `src/tsmixer_itransformer/backend.py`: lazy NeuralForecast integration.
+- `src/tsmixer_itransformer/evaluation.py`: deterministic MAE/MSE calculation.
+- `src/tsmixer_itransformer/artifacts.py`: result persistence.
+- `src/tsmixer_itransformer/plotting.py`: optional static plots.
+- `src/tsmixer_itransformer/service.py`: end-to-end orchestration.
+- `src/tsmixer_itransformer/cli.py`: thin command-line interface.
+- `tests/`: deterministic offline tests.
