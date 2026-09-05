@@ -1,0 +1,66 @@
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[project]
+name = "tsmixer-itransformer-forecasting"
+version = "1.0.0"
+description = "A validated NeuralForecast benchmark for TSMixer and iTransformer"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { file = "LICENSE" }
+authors = [{ name = "MostafaK66" }]
+dependencies = ["numpy>=1.26,<2.3", "pandas>=2.1,<4"]
+
+[project.optional-dependencies]
+forecast = ["datasetsforecast>=1,<2", "neuralforecast>=3,<4"]
+plots = ["matplotlib>=3.8,<4"]
+all = ["datasetsforecast>=1,<2", "matplotlib>=3.8,<4", "neuralforecast>=3,<4"]
+dev = [
+  "hatchling>=1.27",
+  "mypy>=1.15",
+  "pandas-stubs>=2.1",
+  "pytest>=8.3",
+  "pytest-cov>=6",
+  "ruff>=0.11",
+]
+
+[project.scripts]
+forecast-benchmark = "tsmixer_itransformer.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/tsmixer_itransformer"]
+
+[tool.ruff]
+line-length = 90
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM", "S"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**/*.py" = ["S101"]
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+files = ["src"]
+show_error_codes = true
+warn_unreachable = true
+
+[[tool.mypy.overrides]]
+module = ["datasetsforecast.*", "matplotlib.*", "neuralforecast.*"]
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+addopts = "--strict-config --strict-markers --cov-branch --cov-fail-under=90"
+testpaths = ["tests"]
+
+[tool.coverage.run]
+branch = true
+source = ["tsmixer_itransformer"]
+
+[tool.coverage.report]
+show_missing = true
+skip_covered = true
+exclude_also = ["if TYPE_CHECKING:"]

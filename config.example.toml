@@ -1,0 +1,34 @@
+[data]
+dataset = "ettm2"
+download_dir = "datasets"
+frequency = "15min"
+# series = ["OT"]
+
+[split]
+validation_size = 11520
+test_size = 11520
+
+[model]
+horizon = 96
+input_size_multiplier = 3
+n_block = 4
+ff_dim = 128
+learning_rate = 0.001
+batch_size = 32
+max_steps = 1000
+early_stop_patience_steps = 3
+hidden_size = 512
+n_heads = 8
+encoder_layers = 2
+decoder_layers = 1
+d_ff = 2048
+scaler_type = "identity"
+random_seed = 42
+
+[output]
+directory = "outputs"
+predictions_file = "predictions.csv"
+metrics_file = "metrics.csv"
+manifest_file = "run.json"
+data_plot_file = "dataset.png"
+forecast_plot_file = "forecast.png"

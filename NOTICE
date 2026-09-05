@@ -1,0 +1,11 @@
+TSMixer and iTransformer Forecasting
+Copyright (c) 2026 MostafaK66
+
+This repository is a production-oriented continuation of the original private
+"TSMixer-and-iTransformer" project by MostafaK66. Its ETTm1/ETTm2 experiments,
+NeuralForecast model comparison, evaluation, and plotting formed the baseline.
+
+The original repository did not contain a license file. The owner has added the
+MIT License to this maintained version. NeuralForecast, datasetsforecast, TSMixer,
+iTransformer, benchmark datasets, and other dependencies retain their respective
+licenses and are not bundled with this repository.
